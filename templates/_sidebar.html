@@ -1,0 +1,30 @@
+<div class="sidebar border rounded p-3">
+    <button
+      class="btn btn-outline-secondary mb-3 w-100"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#sidebarContent"
+      aria-expanded="true"
+      aria-controls="sidebarContent"
+    >
+      Toggle Sidebar
+    </button>
+    <div class="collapse show" id="sidebarContent">
+      <h4 class="mb-3 text-maroon"><i class="fas fa-fire"></i> Popular Recipes</h4>
+      <div class="list-group">
+        {% if popular_recipes %}
+          {% for recipe in popular_recipes %}
+            <a
+              href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}"
+              class="list-group-item list-group-item-action popular-recipe-item"
+            >
+              {{ recipe.title }}
+            </a>
+          {% endfor %}
+        {% else %}
+          <p class="text-muted">No popular recipes available.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  

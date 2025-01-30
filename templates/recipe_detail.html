@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ recipe.title }} | Cooking Site
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1 class="mb-3">{{ recipe.title }}</h1>
+    <p><strong>Cuisine:</strong> {{ recipe.cuisine }}</p>
+    <p><strong>Dietary:</strong> {{ recipe.dietary }}</p>
+    
+    {% if recipe.image_url %}
+      <img src="{{ recipe.image_url }}" class="img-fluid mb-4" alt="{{ recipe.title }}">
+    {% endif %}
+
+    <h4>Ingredients</h4>
+    <ul>
+      {% for ingredient in recipe.ingredients %}
+        <li>{{ ingredient }}</li>
+      {% endfor %}
+    </ul>
+
+
+    <h4>Instructions</h4>
+    <div class="instructions-container">
+      <ol>
+        {% for step in recipe.instructions %}
+          <li>{{ step[step.find('. ')+2:] }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+    
+    <div class="mt-4">
+      <a href="{{ url_for('recipes') }}" class="btn btn-secondary">Back to Recipes</a>
+    </div>
+  </div>
+{% endblock %}

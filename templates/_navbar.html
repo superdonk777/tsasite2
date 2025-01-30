@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="{{ url_for('home') }}">
+        <img 
+          src="{{ url_for('static', filename='images/logo.png') }}" 
+          alt="Pantry Pirates Logo" 
+          width="80" 
+          height="auto" 
+          class="me-2">
+        <span>Pantry Pirates</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('survey') }}"><i class="fas fa-poll"></i> Questionnaire</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('recipes') }}"><i class="fas fa-utensils"></i> Recipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('survey_results') }}"><i class="fas fa-list"></i> Survey Results</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('ai_gen_recipe') }}">
+                <i class="fas fa-list"></i> Generate a Recipe
+            </a>
+        </li>        
+        </ul>
+        <form class="d-flex ms-3" method="GET" action="{{ url_for('search') }}">
+          <input
+            class="form-control me-2"
+            type="search"
+            name="query"
+            placeholder="Search recipes..."
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+        <button id="darkModeToggle" class="btn btn-outline-light ms-3">Toggle Dark Mode</button>
+      </div>
+    </div>
+  </nav>
+  

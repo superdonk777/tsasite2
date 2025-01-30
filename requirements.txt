@@ -1,0 +1,8 @@
+flask==2.2.5
+flask-wtf==1.1.1
+flask-bootstrap==3.3.7.1
+flask-sqlalchemy==2.5.1
+gunicorn==20.1.0
+#ngrok==0.1.4
+#ping3==4.0.4
+
